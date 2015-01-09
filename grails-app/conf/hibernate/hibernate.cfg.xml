@@ -5,15 +5,11 @@
         <mapping package="com.dogvacay.booking.model"/>
         <mapping class="com.dogvacay.booking.model.Booking"/>
         <mapping class="com.dogvacay.booking.model.BookingDate"/>
-        <mapping class="com.dogvacay.booking.model.LegacyJsonFields"/>
-        <mapping class="com.dogvacay.booking.model.Message"/>
-        <mapping class="com.dogvacay.booking.model.MessageThread"/>
         <mapping class="com.dogvacay.booking.model.Pet"/>
         <mapping class="com.dogvacay.booking.model.Place"/>
         <mapping class="com.dogvacay.booking.model.ReservationDogCount"/>
         <mapping class="com.dogvacay.booking.model.ReservationDogCountId"/>
         <mapping class="com.dogvacay.booking.model.ReservationTransaction"/>
-        <mapping class="com.dogvacay.booking.model.Review"/>
         <mapping class="com.dogvacay.booking.model.User"/>
     </session-factory>
 </hibernate-configuration>
