@@ -1,21 +1,15 @@
 package com.dogvacay.booking.model;
 
-import java.io.Serializable;
-import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-import lombok.Getter;
-import lombok.Setter;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name = "reviews")
@@ -57,23 +51,23 @@ public class Review implements Serializable {
 	@Getter
 	@Setter
 	private Integer rating;
-	
-	@Column(name = "ratings")
+
+	@Column(columnDefinition = "text", name = "ratings")
 	@Getter
 	@Setter
 	private String ratings;
-	
-	@Column(name = "body")
+
+	@Column(columnDefinition = "text", name = "body")
 	@Getter
 	@Setter
 	private String publicReview;
-	
-	@Column(name = "private")
+
+	@Column(columnDefinition = "text", name = "private")
 	@Getter
 	@Setter
 	private String privateReview;
-	
-	@Column(name = "curated")
+
+	@Column(columnDefinition = "text", name = "curated")
 	@Getter
 	@Setter
 	private String curated = "";

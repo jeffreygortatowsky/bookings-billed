@@ -12,27 +12,17 @@
  */
 package com.dogvacay.booking.model;
 
-import java.io.Serializable;
-import java.util.Date;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
 import lombok.Getter;
 import lombok.Setter;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Represents a mutable record in the dogvacay.messages table
@@ -57,9 +47,9 @@ public class Message
 	@JoinColumn(name="thread_id")
     @Setter
     private MessageThread thread;
-	
-	@Column(name = "body_text")
-    @Getter
+
+	@Column(columnDefinition = "mediumtext", name = "body_text")
+	@Getter
     @Setter
 	private String body;
 
@@ -68,8 +58,8 @@ public class Message
     @Setter
 	private Date created;
 
-	@Column(name = "details")
-    @Getter
+	@Column(columnDefinition = "text", name = "details")
+	@Getter
     @Setter
 	private String details;
 
@@ -82,15 +72,15 @@ public class Message
     @Setter
 	private Integer fromUserId;
 
-	@Column(name = "history")
-    @Getter
+	@Column(columnDefinition = "text", name = "history")
+	@Getter
     @Setter
 	private String history;
 
 	@Column(name = "id_listing",  nullable = false) // this field is non-null but not used.
 	private Integer idListing = 0;
-	
-	@Column(name = "replied") // this field is non-null but not used.
+
+	@Column(columnDefinition = "bit", name = "replied") // this field is non-null but not used.
 	private Integer replied = 127; // field has distinct values: 0,1,127
 
 	@Column(name = "result",  nullable = false) // this field is non-null but not used.

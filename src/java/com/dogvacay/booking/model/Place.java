@@ -13,19 +13,17 @@
 package com.dogvacay.booking.model;
 
 
-import java.io.Serializable;
-
+import lombok.Getter;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Immutable;
 
 import javax.persistence.*;
-
-import lombok.Getter;
+import java.io.Serializable;
 
 /**
  * Entity representing records from the "dogvacay.places" table.
@@ -54,8 +52,8 @@ public class Place implements Serializable {
     @Getter
     private String country;
 
-	@Column(name = "description", nullable = false)
-    @Getter
+	@Column(columnDefinition = "mediumtext", name = "description", nullable = false)
+	@Getter
 	private String description;
 	
 	@Column(name = "lat", nullable = false)

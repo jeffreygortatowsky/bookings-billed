@@ -12,27 +12,17 @@
  */
 package com.dogvacay.booking.model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
 import org.hibernate.annotations.OrderBy;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Represents a partially mutable record in the dogvacay.threads table.
@@ -59,19 +49,19 @@ public class MessageThread
 	@Column(name = "modified")
 	private Date modified;
 
-	@Column(name = "details")
-    @Setter
+	@Column(columnDefinition = "text", name = "details")
+	@Setter
 	private String details;
 
 	@Column(name = "from_id", nullable = false)
 	private Integer fromUserId;
 
-	@Column(name = "history")
-    @Setter
+	@Column(columnDefinition = "text", name = "history")
+	@Setter
 	private String history;
-	
-	@Column(name = "last_text")
-    @Setter
+
+	@Column(columnDefinition = "text", name = "last_text")
+	@Setter
 	private String lastText;
 	
     @Getter
@@ -84,9 +74,9 @@ public class MessageThread
 	@Column(name = "resource_id")
     @Setter
 	private Integer resourceId;
-    
-	@Column(name = "resource_type")
-    @Setter
+
+	@Column(columnDefinition = "enum", name = "resource_type")
+	@Setter
 	private String resourceType;
     
 	@Column(name = "to_id", nullable = false)

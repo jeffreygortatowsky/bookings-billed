@@ -12,18 +12,12 @@
 */
 package com.dogvacay.booking.model;
 
-import java.io.Serializable;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
 * A composite PK used by ReservationDogCount
@@ -42,7 +36,7 @@ public class ReservationDogCountId
     @Column(name = "dog_count", nullable = false)
     private Integer dogCount;
 
-    @Column(name = "reservation_date", nullable = false)
+    @Column(columnDefinition = "int", name = "reservation_date", nullable = false)
     private Long reservationDate;
 
     @ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)

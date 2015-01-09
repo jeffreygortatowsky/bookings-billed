@@ -13,22 +13,13 @@
 package com.dogvacay.booking.model;
 
 
-import java.io.Serializable;
-import java.util.Date;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Entity representing records from the "dogvacay.pets" table.
@@ -61,8 +52,8 @@ public class BookingDate
     
     @Column(name = "service", nullable = false)
     private String service;
-    
-    @Column(name = "rate")
+
+    @Column(columnDefinition = "decimal", name = "rate")
     private float rate; 
     
     public static class Builder  {

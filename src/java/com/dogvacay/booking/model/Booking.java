@@ -13,33 +13,19 @@
 package com.dogvacay.booking.model;
 
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.OrderBy;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Entity representing a partially mutable record from "dogvacay.reservations" table.
@@ -64,15 +50,15 @@ public class Booking
 
     @Column(name="booking_request_id")
     private Integer bookingRequestId;
-    
-	@Column(name="charge_amount")
-	private Float chargeAmount;
+
+    @Column(columnDefinition = "decimal", name = "charge_amount")
+    private Float chargeAmount;
 	
 	@Column(name = "created_at")
 	private Date created;
-	
-	@Column(name="decline_reason")
-	private Integer declinedReason;
+
+    @Column(columnDefinition = "tinyint", name = "decline_reason")
+    private Integer declinedReason;
 
 	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL, mappedBy="id.booking")
     @OrderBy(clause = "reservation_date ASC")
@@ -84,16 +70,16 @@ public class Booking
 	@Column(name = "guest")
 	private Integer guest;
 
-    @Column(name = "guest_fees")
+    @Column(columnDefinition = "decimal", name = "guest_fees")
     private Float guestFees;
 
 	@Column(name = "host")
 	private Integer host;
 
-   @Column(name = "host_fees")
+    @Column(columnDefinition = "decimal", name = "host_fees")
     private Float hostFees;
 
-   @Column(name = "host_amount")
+    @Column(columnDefinition = "decimal", name = "host_amount")
     private Float hostPayoutAmount;
 
 	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
@@ -124,20 +110,20 @@ public class Booking
 	                  inverseJoinColumns = {@JoinColumn(name = "pet_id") })
     private Set<Pet> pets;
 
-	@Column(name = "service")
-	private String serviceType;
+    @Column(columnDefinition = "enum", name = "service")
+    private String serviceType;
 	
     @Column(name = "source")
     private String source;
     
 	@Column(name = "start_at")
 	private Date start;
-    
-	@Column(name = "status", nullable = false)
-	private String status;
-	
-	@Column(name="subtotal_amount")
-	private Float subtotalAmount;
+
+    @Column(columnDefinition = "enum", name = "status", nullable = false)
+    private String status;
+
+    @Column(columnDefinition = "decimal", name = "subtotal_amount")
+    private Float subtotalAmount;
 
 	@Column(name = "type")
 	private String type;
