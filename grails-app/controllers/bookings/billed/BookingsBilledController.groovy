@@ -6,7 +6,7 @@ import com.dogvacay.booking.model.User
 
 class BookingsBilledController {
 
-    def index() {
+    def bookings() {
         log.debug(DVUser.findById(130))
     }
 }
