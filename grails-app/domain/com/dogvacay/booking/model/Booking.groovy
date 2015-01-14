@@ -17,18 +17,19 @@ class Booking {
         notes type: 'text'
         declineReason sqlType: 'tinyint'
         bookingRequest column: 'booking_request_id'
-        service sqlType:'enum'
-        status sqlType:'enum'
+        service sqlType: 'enum'
+        status sqlType: 'enum'
+        bookingTransactions column: 'reservation_id', lazy: false
     }
 
+    Integer id
     DVUser host
     DVUser guest
-    int id
     Date createdAt
     Date updatedAt
     String type
     String service
-    int dogs
+    Integer dogs
     Date startAt
     Date endAt
     Date meet1At
@@ -41,10 +42,9 @@ class Booking {
     String status
     String notes
     String source
-    int declineReason
+    Integer declineReason
     String cancelledBy
     Date cancelledOn
     static hasOne = [bookingRequest: BookingRequest]
-
-
+    static hasMany = [bookingTransactions : BookingTransaction]
 }

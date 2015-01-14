@@ -13,6 +13,7 @@ class DVUser {
         preferences column: 'user_id'
         profile column: 'id_user'
         recommended scale:5, class: BigDecimal
+        hostPayout sqlType: 'decimal'
         recommendedResponsive  sqlType:'tinyint'
     }
 
@@ -30,6 +31,7 @@ class DVUser {
     String permissions
     Boolean showInSearchResults
     BigDecimal recommended
+    BigDecimal hostPayout
     Integer recommendedResponsive
     static hasOne = [place:com.dogvacay.booking.model.Place, services:Services]
 //    static hasMany = [userNotes:UserNote, preferences:Preference, pets:Pet]

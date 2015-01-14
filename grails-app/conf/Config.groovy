@@ -113,16 +113,14 @@ log4j.main = {
             'org.codehaus.groovy.grails.plugins',            // plugins
             'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
             'org.springframework',
+            'org.hibernate',
             'net.sf.ehcache.hibernate'
 
     debug   'org.codehaus.groovy.grails.web.servlet',
-            'org.hibernate',
             'grails.web.servlet',
             'org.codehaus.groovy.grails.app.controllers',
             'grails.app.controllers',
             'grails.app.services',
-            'com.dogvacay.admin',
-            'groovyx.net.http',
-            'grails.app.jobs'
-
+            'com.dogvacay.booking',
+            'groovyx.net.http'
 }
